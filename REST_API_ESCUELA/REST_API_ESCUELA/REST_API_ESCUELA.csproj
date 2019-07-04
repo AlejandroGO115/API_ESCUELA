@@ -98,14 +98,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADO\ADO_Estudiantes.cs" />
+    <Compile Include="ADO\ADO_Alumnos.cs" />
+    <Compile Include="ADO\ADO_Materias.cs" />
     <Compile Include="ADO\Conexion.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Estudiante.cs" />
+    <Compile Include="Models\Alumno.cs" />
+    <Compile Include="Models\Materia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -15,17 +15,43 @@ namespace REST_API_ESCUELA.Controllers
     {
         [HttpGet]
         [Route("GetAll")]
-        public List<Estudiante> GetEstudiantes()
+        public IHttpActionResult GetEstudiantes()
         {
-            return ADO_Estudiantes.Obtener_Todo();
+            return Ok(ADO_Alumnos.Obtener_Todo());
         }
 
         [HttpPost]
         [Route("Insert")]
-        public void InsertEstudiante(Estudiante e)
+        public IHttpActionResult InsertEstudiante(Alumno e)
         {
-            ADO_Estudiantes.Insertar(e);
-            Console.Write("Estudiante Insertado");
+            if (e == null)
+                return BadRequest("Error");
+
+            Alumno es = ADO_Alumnos.Insertar(e);
+
+            if (es != null)
+                return Ok(es);
+            else
+                return BadRequest("Error");
+        }
+
+        [HttpGet]
+        [Route("GetID")]
+        public IHttpActionResult GetAlumnosID(int ID)
+        {
+            return Ok(ADO_Alumnos.GetAlumno(ID));
+        }
+
+        [HttpGet]
+        [Route("GetID")]
+        public IHttpActionResult GetAlumnosID()
+        {
+            var headers = Request.Headers;
+            if (headers.Contains("ID"))
+            {
+                return Ok(ADO_Alumnos.GetAlumno(Convert.ToInt32(headers.GetValues("ID").First())));
+            }
+            return BadRequest("Error");
         }
     }
 }
