@@ -53,5 +53,32 @@ namespace REST_API_ESCUELA.Controllers
             }
             return BadRequest("Error");
         }
+
+        [HttpPut]
+        [Route("Update")]
+        public IHttpActionResult ActualizarAlumno(Alumno e)
+        {
+            if (e == null)
+                return BadRequest("Error");
+
+            Alumno a = ADO_Alumnos.Actualizar_Alumno(e);
+
+            if (a != null)
+                return Ok(a);
+            else
+                return BadRequest("Error");
+        }
+
+        [HttpDelete]
+        [Route("Delete")]
+        public IHttpActionResult EliminarAlumno(int ID)
+        {
+            string a = ADO_Alumnos.Elimnar_Alumno(ID);
+
+            if (a != "")
+                return Ok(a);
+            else
+                return BadRequest("Error");
+        }
     }
 }

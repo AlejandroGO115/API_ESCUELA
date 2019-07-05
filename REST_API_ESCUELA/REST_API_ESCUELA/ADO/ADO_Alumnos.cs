@@ -14,7 +14,8 @@ namespace REST_API_ESCUELA.ADO
         #region CONSULTAS
         private static readonly string INSERT_ALUMNOS = "INSERT INTO alumnos (Nombre,Edad) VALUES (@Nombre,@Edad);";
         //private static readonly string DELETE_ALUMNOS = "INSERT INTO MARCAS (NOMBRE_MARCAS) VALUES (@NOMBRE_MARCAS);";
-        //private static readonly string UPDATE_ALUMNOS = "UPDATE alumnos SET (NOMBRE_MARCAS) VALUES (@NOMBRE_MARCAS);";
+        private static readonly string DELETE_ALUMNOS = "DELETE FROM alumnos WHERE idAlumnos = @idAlumnos;";
+        private static readonly string UPDATE_ALUMNO = "UPDATE alumnos SET Nombre = @Nombre, Edad = @Edad WHERE idAlumnos = @idAlumnos;";
         //private static readonly string SELECT_ID = "SELECT * FROM MARCAS WHERE idMARCAS = @idMARCAS;";
         private static readonly string SELECT_ALL = "SELECT * FROM alumnos;";
         private static readonly string SELECT_ALL_ID = "select * from alumnosmaterias join alumnos on idAlumnos = idAlumno join materias on idMaterias = idMateria where idAlumno = @idAlumno";
@@ -79,6 +80,56 @@ namespace REST_API_ESCUELA.ADO
                 con.Close();
             }
             return lista;
+        }
+
+        public static Alumno Actualizar_Alumno(Alumno e)
+        {
+            MySqlCommand cmd = new MySqlCommand(UPDATE_ALUMNO , con);
+            cmd.Parameters.AddWithValue("@Nombre" , e.Nombre);
+            cmd.Parameters.AddWithValue("@Edad" , e.Edad);
+            cmd.Parameters.AddWithValue("@idAlumnos" , e.IdAlumnos);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                e = null;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return e;
+        }
+
+        public static string Elimnar_Alumno(int ID)
+        {
+            string e = null;
+            MySqlCommand cmd = new MySqlCommand(DELETE_ALUMNOS , con);
+            cmd.Parameters.AddWithValue("@idAlumnos" , ID);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteReader();
+                e = "ALUMNO ELIMINADO";
+            }
+            catch (Exception)
+            {
+
+                e = "ERROR AL ELIMINAR";
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return e;
         }
 
         public static Alumno GetAlumno(int ID)
