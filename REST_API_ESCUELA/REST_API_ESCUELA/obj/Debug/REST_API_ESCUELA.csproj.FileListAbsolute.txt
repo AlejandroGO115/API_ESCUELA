@@ -65,7 +65,6 @@ C:\Users\Dev2\Documents\GitHub\API_ESCUELA\API_ESCUELA\REST_API_ESCUELA\REST_API
 C:\Users\Dev2\Documents\GitHub\API_ESCUELA\API_ESCUELA\REST_API_ESCUELA\REST_API_ESCUELA\bin\es\System.Net.Http.Formatting.resources.dll
 C:\Users\Dev2\Documents\GitHub\API_ESCUELA\API_ESCUELA\REST_API_ESCUELA\REST_API_ESCUELA\bin\es\System.Web.Http.resources.dll
 C:\Users\Dev2\Documents\GitHub\API_ESCUELA\API_ESCUELA\REST_API_ESCUELA\REST_API_ESCUELA\bin\es\System.Web.Http.WebHost.resources.dll
-C:\Users\Dev2\Documents\GitHub\API_ESCUELA\API_ESCUELA\REST_API_ESCUELA\REST_API_ESCUELA\obj\Debug\REST_API_ESCUELA.csprojAssemblyReference.cache
 C:\Users\Dev2\Documents\GitHub\API_ESCUELA\API_ESCUELA\REST_API_ESCUELA\REST_API_ESCUELA\obj\Debug\REST_API_ESCUELA.csproj.CoreCompileInputs.cache
 C:\Users\Dev2\Documents\GitHub\API_ESCUELA\API_ESCUELA\REST_API_ESCUELA\REST_API_ESCUELA\obj\Debug\REST_API_ESCUELA.csproj.CopyComplete
 C:\Users\Dev2\Documents\GitHub\API_ESCUELA\API_ESCUELA\REST_API_ESCUELA\REST_API_ESCUELA\obj\Debug\REST_API_ESCUELA.dll
